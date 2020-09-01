@@ -1,0 +1,571 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.ta-center-mobile {
+  text-align: center;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.font-orbitron {
+  font-family: "Orbitron", sans-serif;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.grid-container {
+  height: 100vh;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-rows: 100px 1fr 1fr;
+}
+
+.site-logo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin: auto;
+}
+
+.grid-item-images {
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.images-box {
+  /* background-color: #e43700; */
+  background-color: #fe5623;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* .images-box-img {
+  background: url("https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/pia21044_orig.jpg")
+    no-repeat -200px;
+  text-align: right;
+  margin-top: 15%;
+  height: 10%;
+  filter: grayscale(100%);
+} */
+
+.images-box-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 4em;
+  position: absolute;
+  bottom: 0;
+  /* color: #453733; */
+  /* color: #292323; */
+  /* color: #5a0e31; */
+}
+
+.grid-item-weather {
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  margin-top: 0 !important;
+}
+
+.weather-box {
+  font-family: "Calibri Light", sans-serif;
+  background-color: #e2eaec;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.weather-box-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2em;
+  color: #6e6e6e;
+}
+
+.weather-data {
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.weather-data-location {
+  text-align: right;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.weather-data-stats {
+  line-height: 2em;
+  padding-left: 10px;
+}
+
+.weather-expanded-today-box {
+  background-color: #ff9800;
+  padding: 20px;
+  border-radius: 6px;
+  display: inline-block;
+  color: black;
+}
+
+.weather-expanded-today-box-loading {
+  background-color: #d7bb91;
+  padding: 20px;
+  border-radius: 6px;
+  display: inline-block;
+  color: black;
+}
+
+.weather-prev-days-box {
+  background-color: #c0c0c0;
+  padding: 10px;
+  border-radius: 6px;
+  display: inline-block;
+  margin: 10px;
+  color: black;
+}
+
+.grid-item-missions {
+  position: relative;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  margin-top: 0 !important;
+}
+
+.missions-box {
+  background-color: #d1d6db;
+  width: 100%;
+  height: 100%;
+}
+
+.missions-box-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2em;
+  color: #6e6e6e;
+}
+
+.grid-item-navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Orbitron", sans-serif;
+  color: #404040;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 2em;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.side-menu {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 45;
+  z-index: 1;
+  margin-top: -40px;
+}
+
+.side-menu ul {
+  padding: 10px;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.side-menu ul li {
+  color: #808080;
+  font-style: italic;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Arial Narrow", sans-serif;
+  font-size: 2rem;
+  line-height: 2;
+  letter-spacing: 4px;
+  padding-left: 20px;
+}
+
+.side-menu ul li:hover {
+  color: #000;
+  background-color: #fff;
+  padding-left: 60px;
+  margin-left: -40px;
+}
+
+.side-menu ul li a {
+  text-decoration: inherit;
+  color: inherit;
+  font-style: inherit;
+  cursor: pointer;
+}
+
+.missions-list ul {
+  margin: 20px 0 0 0;
+  padding: 0;
+}
+
+.missions-list li {
+  color: #6e6e6e;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Calibri Light", sans-serif;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* Burger menu */
+.nav-menu {
+  cursor: pointer;
+  margin: auto;
+  background-color: white;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #ff5722;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  width: 35px;
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+  width: 35px;
+  opacity: 0;
+}
+
+.change .bar3 {
+  width: 35px;
+  -webkit-transform: rotate(45deg) translate(-9px, -8px);
+  transform: rotate(45deg) translate(-9px, -8px);
+}
+
+.main-text {
+  position: absolute;
+  top: 0;
+  background-color: rgba(233, 233, 233, 0.8);
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+  margin: 50px 10px 0 10px;
+  padding: 0 40px;
+  height: 75vh;
+  width: -webkit-fill-available;
+  overflow: auto;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.grid-item-home {
+  display: grid;
+  height: 100vh;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.grid-item-expanded {
+  background-color: #d1d6db;
+  display: grid;
+  height: 100vh;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  margin: 2px;
+  border: 2px solid #9c9c9c;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #9c9c9c transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.mars2020page {
+  background: url(https://spacenews.com/wp-content/uploads/2020/07/mars2020-launch2.jpg)
+    no-repeat;
+  padding: 0 10%;
+  background-size: cover;
+  height: 100vh;
+  filter: blur(3px);
+}
+
+.expanded-box {
+  background-color: #d1d6db;
+}
+
+@media (min-width: 767px) {
+  .ta-center-mobile {
+    text-align: unset;
+  }
+  .main-text {
+    margin: 40px 10%;
+    position: absolute;
+    top: 0;
+  }
+
+  .title-2em-mobile {
+    margin-top: 0;
+    font-size: 2em;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr 1fr 1fr;
+  }
+
+  .grid-item-navbar {
+    font-size: 3em;
+    grid-column-end: 6;
+    justify-self: inherit;
+  }
+
+  .grid-item-expanded {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 6;
+    margin-top: -40px;
+  }
+
+  .grid-item-home {
+    grid-template-rows: 40px 1fr 1fr 1fr 1fr 1fr;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 6;
+  }
+
+  .expanded-box-title {
+    font-family: "Orbitron", sans-serif;
+    text-align: center;
+    font-size: 2em;
+    color: #404040;
+    padding: 0 10%;
+  }
+
+  .grid-item-images {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin-top: 0 !important;
+  }
+
+  .images-box {
+    background: url(https://i.redd.it/bd8nopgsbw631.jpg) no-repeat center center
+      #000;
+    background-size: 400px 400px;
+    overflow: hidden;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    right: 0;
+    transition: all 0.25s ease-in-out;
+    color: rgba(183, 105, 81, 0.25);
+  }
+
+  .images-box:hover {
+    color: #c1360c;
+    width: 440px;
+    height: 440px;
+  }
+
+  .grid-item-weather {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  .weather-data {
+    margin-top: 40px;
+  }
+
+  .weather-box {
+    background-color: #e2eaec;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .weather-box:hover {
+    width: 240px;
+    height: 240px;
+  }
+
+  .weather-box-title {
+    position: absolute;
+    right: 0;
+  }
+
+  .grid-item-missions {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    margin-top: 0 !important;
+  }
+
+  .missions-box {
+    background-color: #d1d6db;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .missions-box:hover {
+    width: 240px;
+    height: 240px;
+  }
+
+  .missions-box-title {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+  }
+
+  .missions-list li:hover {
+    color: #000;
+  }
+
+  .side-menu {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 6;
+  }
+
+  .nav-menu {
+    grid-column-start: 5;
+    grid-column-end: 5;
+  }
+}
+
+@media (min-width: 800px) {
+  .weather-data {
+    height: 100%;
+    padding-top: 40px;
+  }
+  .missions-list {
+    margin-top: -20px;
+  }
+}
+@media (min-width: 1220px) {
+  .grid-item-navbar {
+    grid-column-end: 6;
+  }
+  .grid-item-home {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.25fr 2fr 2.75fr;
+    grid-column-end: 6;
+  }
+  .grid-item-images {
+    position: relative;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    margin-top: 0 !important;
+  }
+  .grid-item-weather {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .grid-item-missions {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    margin-top: 0 !important;
+  }
+
+  .side-menu {
+    grid-column-start: 5;
+    grid-column-end: 6;
+  }
+  .main-text {
+    margin: 20px 10%;
+  }
+}

@@ -1,0 +1,569 @@
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1220px;
+$fontOrbitron: "Orbitron", sans-serif;
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin boxRounded($backgroundColor) {
+  background-color: $backgroundColor;
+  padding: 20px;
+  border-radius: 6px;
+  display: inline-block;
+  color: black;
+}
+
+@import "./burger-menu.scss";
+@import "./loading-ring";
+@import "./buttons";
+@import "./scrollbar";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.ta-center-mobile {
+  text-align: center;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.font-orbitron {
+  font-family: "Orbitron", sans-serif;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.image-card {
+  display: inline-grid;
+  margin: 20px;
+  cursor: pointer;
+  &-text {
+    width: 150px;
+    height: 100px;
+    background-color: white;
+    font-family: Calibri;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  &-background {
+    height: 100px;
+    width: 150px;
+    background-size: cover;
+    border-radius: 5px 5px 0 0;
+  }
+}
+
+.opened-image-modal {
+  @include flexCenter();
+  align-items: flex-start;
+  background: rgba(64, 64, 64, 0.8);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  overflow: auto;
+  .opened-image {
+    margin: auto;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.grid {
+  &-container {
+    height: 100vh;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-rows: 100px 1fr 1fr;
+  }
+  &-item {
+    &-navbar {      
+      @include flexCenter();
+      font-family: $fontOrbitron;
+      color: #404040;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 2em;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+    &-images {
+      position: relative;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 4;
+    }
+    &-weather {
+      position: relative;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 4;
+      grid-row-end: 5;
+      margin-top: 0 !important;
+    }
+    &-missions {
+      position: relative;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 4;
+      grid-row-end: 5;
+      margin-top: 0 !important;
+    }
+    &-home {
+      display: grid;
+      height: 100vh;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 4;
+    }
+    &-expanded {
+      background-color: #d1d6db;
+      display: grid;
+      height: 100vh !important;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 4;
+    }
+  }
+}
+
+.site-logo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin: auto;
+}
+
+.images {
+  &-box {
+    /* background-color: #e43700; */
+    background-color: #fe5623;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    &-title {
+      font-family: $fontOrbitron;
+      font-size: 4em;
+      position: absolute;
+      bottom: 0;
+      /* color: #453733; */
+      /* color: #292323; */
+      /* color: #5a0e31; */
+    }
+  }
+}
+
+.weather {
+  &-box {
+    font-family: "Calibri Light", sans-serif;
+    background-color: #e2eaec;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    &-title {
+      font-family: $fontOrbitron;
+      font-size: 2em;
+      color: #6e6e6e;
+    }
+  }
+  &-data {
+    margin-top: 20px;
+    text-decoration: none;
+    &-location {
+      text-align: right;
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+    &-stats {
+      line-height: 2em;
+      padding-left: 10px;
+    }
+  }
+  &-expanded-today-box {
+    @include boxRounded(#ff9800);
+  }
+  &-expanded-today-box-loading {
+    @include boxRounded(#d7bb91);
+  }
+  &-prev-days-box {
+    @include boxRounded(#c0c0c0);
+    margin: 10px;
+  }
+}
+
+.missions {
+  &-box {
+    background-color: #d1d6db;
+    width: 100%;
+    height: 100%;
+    &-title {
+      font-family: $fontOrbitron;
+      font-size: 2em;
+      color: #6e6e6e;
+    }
+  }
+  &-list {
+    ul {
+      margin: 20px 0 0 0;
+      padding: 0;
+    }
+    li {
+      color: #6e6e6e;
+      text-decoration: none;
+      list-style: none;
+      font-family: "Calibri Light", sans-serif;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+  }
+  &-submenu {
+    margin-top: 0 !important;
+    div {
+      color: #6e6e6e;
+      font-size: 1.5rem;
+      padding-left: 20px;
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}
+
+.expanded {
+  &-box {
+    background-color: #d1d6db;
+  }
+}
+
+.side-menu {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 45;
+  z-index: 1;
+  margin-top: -40px;  
+  ul {
+    padding: 10px;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    li {
+      color: #808080;
+      font-style: italic;
+      text-decoration: none;
+      list-style: none;
+      font-family: "Arial Narrow", sans-serif;
+      font-size: 2rem;
+      line-height: 2;
+      letter-spacing: 4px;
+      padding-left: 20px;
+      &:hover {
+        color: #000;
+        background-color: #fff;
+        padding-left: 60px;
+        margin-left: -40px;
+      }
+      a {
+        text-decoration: inherit;
+        color: inherit;
+        font-style: inherit;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.nav-menu {
+  cursor: pointer;
+  margin: auto;
+  background-color: white;
+}
+
+.main-text {
+  position: absolute;
+  top: 0;
+  background-color: rgba(233, 233, 233, 0.8);
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+  margin: 50px 10px 0 10px;
+  padding: 0 40px;
+  height: 75vh;
+  width: -webkit-fill-available;
+  overflow: auto;
+}
+
+.mars2020page {
+  background: url(https://spacenews.com/wp-content/uploads/2020/07/mars2020-launch2.jpg)
+    no-repeat;
+  padding: 0 10%;
+  background-size: cover;
+  height: 100vh;
+  filter: blur(3px);
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .ta-center-mobile {
+    text-align: unset;
+  }
+  .main-text {
+    margin: 40px 10%;
+    position: absolute;
+    top: 0;
+  }
+
+  .title-2em-mobile {
+    margin-top: 0;
+    font-size: 2em;
+  }
+
+  .grid {
+    &-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px 1fr 1fr 1fr 1fr;
+    }
+
+    &-item {
+      &-navbar {
+        font-size: 3em;
+        grid-column-end: 6;
+        justify-self: inherit;
+      }
+      &-expanded {
+        grid-column-start: 1;
+        grid-column-end: 6;
+        grid-row-start: 2;
+        grid-row-end: 6;
+        margin-top: -40px;
+      }
+      &-home {
+        grid-template-rows: 40px 1fr 1fr 1fr 1fr 1fr;
+        grid-column-start: 1;
+        grid-column-end: 6;
+        grid-row-start: 2;
+        grid-row-end: 6;
+      }
+      &-images {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-top: 0 !important;
+      }
+      &-weather {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 4;
+      }
+      &-missions {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        margin-top: 0 !important;
+      }
+    }
+  }
+
+  .expanded-box-title {
+    font-family: $fontOrbitron;
+    text-align: center;
+    font-size: 2em;
+    color: #404040;
+    padding: 0 10%;
+  }
+
+
+  .images {
+    &-box {
+      background: url(https://i.redd.it/bd8nopgsbw631.jpg) no-repeat center center
+        #000;
+      background-size: 400px 400px;
+      overflow: hidden;
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      right: 0;
+      transition: all 0.25s ease-in-out;
+      color: rgba(183, 105, 81, 0.25);
+      &:hover {
+        color: #c1360c;
+        width: 440px;
+        height: 440px;
+      }
+    }
+  }
+
+  .weather {
+    &-data {
+      margin-top: 40px;
+      height: 100%;
+    }
+
+    &-box {
+      background-color: #e2eaec;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      bottom: 0;
+      transition: all 0.25s ease-in-out;
+      &:hover {
+        width: 240px;
+        height: 240px;
+      }
+      &-title {
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+ 
+
+  .missions {
+    &-box {
+      background-color: #d1d6db;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 0;
+      transition: all 0.25s ease-in-out;
+      &:hover {
+        width: 240px;
+        height: 240px;
+      }
+      &-title {
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+      }
+    }
+    &-list {
+      li {
+        &:hover {
+        color: #000;
+        }
+      }
+    }
+  }
+
+  .side-menu {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 6;
+  }
+
+  .nav-menu {
+    grid-column-start: 5;
+    grid-column-end: 5;
+  }
+
+  .opened-image-modal {
+    .opened-image {
+      img {
+        width: 500px;
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .grid {
+    &-item {
+      &-navbar {
+        grid-column-end: 6;
+      }
+      &-home {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.25fr 2fr 2.75fr;
+        grid-column-end: 6;
+      }
+      &-images {
+        position: relative;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        margin-top: 0 !important;
+      }
+      &-weather {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+      }
+      &-missions {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        margin-top: 0 !important;
+      }
+    }
+  }
+
+  .weather {
+    &-data {
+      padding-top: 40px;
+    }
+  }
+
+  .missions {
+    &-list {
+      margin-top: -20px;
+    }
+  }
+
+  .side-menu {
+    grid-column-start: 5;
+    grid-column-end: 6;
+  }
+
+  .main-text {
+    margin: 20px 10%;
+  }
+}
