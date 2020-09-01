@@ -17,8 +17,8 @@ There are three sections on the main page which when hovered show basic informat
 
 Each square will lead to a details page when clicked, providing further information. This is done by executing two things simultaneously:
 
-Using React Router, the main homepage App.js is filled with all the Routes. Each box on the main screen as well as the items in the side menu contain the Links to the various subpages. Clicking on any Link will load that Route on the screen
-Clicking on any of the Links on the main page or Close buttons in the subpages triggers the useState React hook setShowMainGrid() which changes its state between true and false. This causes two different styles to be applied to elements on the grid - openAnimation or closeAnimation (the main difference being a change in visibility). This makes it possible to animate switching between different sections of the application.
+- Using React Router, the main homepage App.js is filled with all the Routes. Each box on the main screen as well as the items in the side menu contain the Links to the various subpages. Clicking on any Link will load that Route on the screen
+- Clicking on any of the Links on the main page or Close buttons in the subpages triggers the useState React hook setShowMainGrid() which changes its state between true and false. This causes two different styles to be applied to elements on the grid - openAnimation or closeAnimation (the main difference being a change in visibility). This makes it possible to animate switching between different sections of the application.
 
 Other React features used:
 - useEffect called only once when the expanded pages are rendered to assure that the main grid is hidden and the expanded screen is visible (calls setShowMainGrid(false)).
