@@ -45,12 +45,12 @@ export default function App() {
   // let imagesData = {};
 
   // weather
-  // const { data: weatherData, loading: weatherLoading } = useFetch(
-  //   "https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0"
-  // );
+   const { data: weatherData, loading: weatherLoading } = useFetch(
+     "https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0"
+   );
 
-  let weatherLoading = true;
-  let weatherData = {};
+  // let weatherLoading = true;
+  // let weatherData = {};
   let latestSol = weatherLoading
     ? ""
     : weatherData.sol_keys[weatherData.sol_keys.length - 1];
